@@ -1,58 +1,59 @@
-drip-filter (Python Edition) ☕
-Filters through data like a slow drip coffee machine — thoughtful, clean, and efficient.
+💖 Drip-Filter Data Filter
+A robust, object-oriented Python application designed to load, filter, and save user data with flair. Built by SoftStack Studios, this app proves that data management doesn't have to be boring.
 
 
-📝 Overview
-Drip-Filter (by SoftStack Studios) is a robust terminal-based tool for sorting and filtering user datasets. Using a "slow-pour" philosophy, it allows you to sift through large JSON files to find exactly who you are looking for, with a UI that is as friendly as your favorite barista.
+
+🌈 Features
+Object-Oriented Architecture: Uses a dedicated User class with private attributes and property decorators for secure data handling.
+
+Dynamic Filtering: Implements getattr for flexible searching across various user attributes (ID, Name, Age, City, Phone).
+
+Drunk-Proof Input Handling: Comprehensive try/except blocks and input validation to handle "ghosts in the machine" without crashing.
+
+Partial Match Search: High-end search logic allows users to find data using fragments (like area codes).
+
+Aesthetic UI: A Scooby-Doo inspired terminal interface featuring emojis and clear feedback.
 
 
-⚙️ Features
-Multi-Criteria Filtering: Sift through data by Age, City, Name, or ID.
 
-Range Logic: Built-in "min/max" filtering for numerical data (Age and ID).
+🛠️ Technical Deep Dive
+Encapsulation & Logic Delegation
+Unlike basic scripts, Drip-Filter delegates logic to the data model. The User class is responsible for determining if it matches a search criteria, keeping the main.py interface clean and readable.
 
-Object-Oriented Design: Data is converted from raw JSON into a managed User class for better attribute handling.
+Scalability
+The use of matches_string and matches_range methods means new user attributes can be added to the JSON without needing to rewrite the core filtering engine.
 
-Friendly UI: Custom error handling with fun, "Scooby-Doo" inspired prompts (Zoinks! Jinkies!).
-
-Data Persistence: Save your filtered "brew" into a new JSON file to keep your results for later.
-
-
-🧰 Tech Stack
-Python 3: The core engine of the filtering logic.
-
-JSON: Used for both input data and filtered output.
-
-OS Module: For smart file path checking and system management.
 
 
 🚀 Getting Started
-Ensure your main.py, user.py, and your JSON data file are in the same folder.
+1. Prerequisites
+Python 3.x
 
-Run the program:
+2. Installation
+Clone the repository to your local machine:
+
+Bash
+
+git clone https://github.com/yourusername/drip-filter.git
+cd drip-filter
+3. Usage
+Run the main application:
 
 Bash
 
 python main.py
-Enter your filename (e.g., data.json) when prompted.
-
-Follow the Filter Fun Menu to refine your data!
+When prompted for a file, you can use the included data.json.
 
 
-♿ Accessibility Notes
-Terminal Friendly: Designed to work perfectly with screen readers in a CLI environment.
 
-Input Validation: Robust error checking ensures the program doesn't crash on typos or invalid numbers.
+📁 File Structure
+main.py - The big kahuna; manages the UI and application flow.
 
-Clear Hierarchy: Uses ASCII formatting (=======) to create a visual structure for keyboard users.
+user.py - The logic engine; contains the User class and OOP methods.
 
-
-📸 Screenshots
-The Welcome Menu
-The Filtered Result
+data.json - Sample dataset for testing.
 
 
-✨ Future Plans
-Dynamic Attribute Filtering: Allow users to filter by any key found in the JSON file automatically.
 
-Visual Reports: Export the results into the "CodeLatte" web dashboard.
+🍬 Credits
+Developed with 💖 by SoftStack Studios
