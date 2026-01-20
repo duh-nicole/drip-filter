@@ -1,5 +1,5 @@
 """
-This is the main function to run JavaChips Tech data filtering app
+This is the main function to run drip-filter data filtering app by SoftStack Studios
 Can file load, cute menu display, basic filter, save data
 """
 
@@ -87,17 +87,30 @@ def filter_by_range(users, attribute_key, prompt_display):
     filtered_users = [user for user in users if min_val <= getattr(user, attribute_key) <= max_val]
     return filtered_users
 
-def filter_by_string_attribute(users, prompt_text, attribute_key):
+def filter_by_string_attribute(users, prompt_text, attribute_key, partial_match=False):
     """
-    Filters users by a string attribute.
+    Filters users by a string attribute. 
+    Can do exact match or partial match (like area codes).
     """
     print(f"\n--- Filter by {prompt_text} ---")
     search_term = input(f"Please enter {prompt_text.lower()} for filtering: ").strip().lower()
+    
     if not search_term:
         print(f"No {prompt_text.lower()} entered. No filtering applied.")
         return []
-    filtered_users = [user for user in users if getattr(user, attribute_key).lower() == search_term]
-    print(f"\n🎉 Ta da! Here is the filtered data based on {prompt_text.lower()}: '{search_term}'.")
+    
+    if partial_match:
+        # This allows searching for "123" inside "123-456-7890"
+        filtered_users = [user for user in users if search_term in getattr(user, attribute_key).lower()]
+    else:
+        # This stays as an exact match for things like City names
+        filtered_users = [user for user in users if getattr(user, attribute_key).lower() == search_term]
+    
+    if filtered_users:
+        print(f"\n🎉 Ta da! Found {len(filtered_users)} results for: '{search_term}'.")
+    else:
+        print(f"\nZoinks! 👻 No matches found for '{search_term}'.")
+        
     return filtered_users
 
 
@@ -106,7 +119,7 @@ def main():
     The big kahuna. Main function to run filter through data
     """
     print("\n" + "="*60)
-    print("      💖 Welcome to JavaChips Data Filter 💖")
+    print("      💖 Welcome to drip-filter Data Filter 💖")
     print("          Let's work together and find your data!")
     print("="*60 + "\n")
 
@@ -130,10 +143,15 @@ def main():
         print("3 - Filter by last name ✍️")
         print("4 - Filter by first name 👋")
         print("5 - Filter by id (min and max) #️⃣")
+        print("6 - Filter by Phone/Area Code 📞")
         print("or enter Q to quit and say goodbye 🚪")
         print("-" * 60)
 
         choice = input("This is the part where you pick your filter ").strip().lower()
+        
+        if not choice:
+            print("Zoinks! You didn't pick anything! Try again. 👻")
+            continue
         filtered_data = []
 
         if choice == '1':
@@ -146,6 +164,8 @@ def main():
             filtered_data = filter_by_string_attribute(all_users, "First Name", "first_name")
         elif choice == '5':
             filtered_data = filter_by_range(all_users, "id", "id")
+        elif choice == '6':
+            filtered_data = filter_by_string_attribute(all_users, "Phone Number", "phone_number", partial_match=True)
         elif choice == 'q':
             print("Peacing out. Adios! 👋")
             break
