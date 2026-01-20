@@ -21,42 +21,60 @@ Aesthetic UI: A Scooby-Doo inspired terminal interface featuring emojis and clea
 
 
 
+
 🛠️ Technical Deep Dive
+
 Encapsulation & Logic Delegation
+
 Unlike basic scripts, Drip-Filter delegates logic to the data model. The User class is responsible for determining if it matches a search criteria, keeping the main.py interface clean and readable.
+
 
 Scalability
 The use of matches_string and matches_range methods means new user attributes can be added to the JSON without needing to rewrite the core filtering engine.
 
 
 
+
 🚀 Getting Started
+
 1. Prerequisites
+
 Python 3.x
 
+
 2. Installation
+
 Clone the repository to your local machine:
 
 Bash
-
 git clone https://github.com/yourusername/drip-filter.git
 cd drip-filter
+
+
 3. Usage
+   
 Run the main application:
 
 Bash
 
 python main.py
+
+
 When prompted for a file, you can use the included data.json.
 
 
 
+
 📁 File Structure
+
 main.py - The big kahuna; manages the UI and application flow.
+
 
 user.py - The logic engine; contains the User class and OOP methods.
 
+
 data.json - Sample dataset for testing.
+
 
 
 
