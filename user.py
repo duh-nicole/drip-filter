@@ -14,88 +14,24 @@ class User:
         self._city = city
         self._phone_number = phone_number
 
-    # Getters
-    @property
-    def id(self):
-        """Gets the user's ID."""
-        return self._id
+    # --- OOP Matching Methods ---
+    def matches_range(self, attribute_key, min_val, max_val):
+        """Checks if a numerical attribute falls within a specific range."""
+        value = getattr(self, attribute_key)
+        return min_val <= value <= max_val
 
-    @property
-    def first_name(self):
-        """Gets the user's first name."""
-        return self._first_name
+    def matches_string(self, attribute_key, search_term, partial=False):
+        """Checks if a string attribute matches or contains a search term."""
+        value = str(getattr(self, attribute_key)).lower()
+        search_term = search_term.lower()
+        
+        if partial:
+            return search_term in value
+        return value == search_term
 
-    @property
-    def last_name(self):
-        """Gets the user's last name."""
-        return self._last_name
-
-    @property
-    def age(self):
-        """Gets the user's age."""
-        return self._age
-
-    @property
-    def city(self):
-        """Gets the user's city."""
-        return self._city
-
-    @property
-    def phone_number(self):
-        """Gets the user's phone number."""
-        return self._phone_number
-
-    # Setters
-    @id.setter
-    def id(self, value):
-        """Sets the user's ID."""
-        self._id = value
-
-    @first_name.setter
-    def first_name(self, value):
-        """Sets the user's first name."""
-        self._first_name = value
-
-    @last_name.setter
-    def last_name(self, value):
-        """Sets the user's last name."""
-        self._last_name = value
-
-    @age.setter
-    def age(self, value):
-        """Sets the user's age."""
-        self._age = value
-
-    @city.setter
-    def city(self, value):
-        """Sets the user's city."""
-        self._city = value
-
-    @phone_number.setter
-    def phone_number(self, value):
-        """Sets the user's phone number."""
-        self._phone_number = value
-
-    def __str__(self):
-        """
-        Overrides the default string to prettier display
-        """
-        return (f"User ID: {self.id}\n"
-                f"{self.first_name} {self.last_name}\n"
-                f"{self.city}\n"
-                f"{self.age}\n"
-                f"{self.phone_number}")
-
-    def in_range(self, min_val, max_val):
-        """
-        Verifies age is in specified range
-        """
-        return min_val <= self.age <= max_val
-
+    # --- Data Handling ---
     def to_dict(self):
-        """
-        Converts object into dictionary
-        """
+        """Converts object back to dictionary for JSON saving."""
         return {
             'id': self.id,
             'first_name': self.first_name,
@@ -104,3 +40,35 @@ class User:
             'city': self.city,
             'phone_number': self.phone_number
         }
+
+    # --- Getters (Properties) ---
+    @property
+    def id(self): 
+        return self._id
+
+    @property
+    def first_name(self): 
+        return self._first_name
+
+    @property
+    def last_name(self): 
+        return self._last_name
+
+    @property
+    def age(self): 
+        return self._age
+
+    @property
+    def city(self): 
+        return self._city
+
+    @property
+    def phone_number(self): 
+        return self._phone_number
+
+    def __str__(self):
+        return (f"User ID: {self.id}\n"
+                f"{self.first_name} {self.last_name}\n"
+                f"{self.city}\n"
+                f"Age: {self.age}\n"
+                f"Phone: {self.phone_number}")
