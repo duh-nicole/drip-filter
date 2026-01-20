@@ -1,9 +1,14 @@
 💖 Drip-Filter Data Filter
+
 A robust, object-oriented Python application designed to load, filter, and save user data with flair. Built by SoftStack Studios, this app proves that data management doesn't have to be boring.
 
 
+## 📸 Demo
+![Drip-Filter in Action](dripfilterDEMO.png)
+
 
 🌈 Features
+
 Object-Oriented Architecture: Uses a dedicated User class with private attributes and property decorators for secure data handling.
 
 Dynamic Filtering: Implements getattr for flexible searching across various user attributes (ID, Name, Age, City, Phone).
