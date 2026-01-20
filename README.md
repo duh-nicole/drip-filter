@@ -3,8 +3,10 @@
 A robust, object-oriented Python application designed to load, filter, and save user data with flair. Built by SoftStack Studios, this app proves that data management doesn't have to be boring.
 
 
+
 ## 📸 Demo
 ![Drip-Filter in Action](dripfilterDEMO.png)
+
 
 
 🌈 Features
@@ -31,6 +33,7 @@ Unlike basic scripts, Drip-Filter delegates logic to the data model. The User cl
 
 Scalability
 The use of matches_string and matches_range methods means new user attributes can be added to the JSON without needing to rewrite the core filtering engine.
+
 
 
 
@@ -65,6 +68,7 @@ When prompted for a file, you can use the included data.json.
 
 
 
+
 📁 File Structure
 
 main.py - The big kahuna; manages the UI and application flow.
@@ -74,6 +78,7 @@ user.py - The logic engine; contains the User class and OOP methods.
 
 
 data.json - Sample dataset for testing.
+
 
 
 
