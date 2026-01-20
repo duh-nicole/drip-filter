@@ -50,7 +50,7 @@ Python 3.x
 Clone the repository to your local machine:
 
 Bash
-git clone https://github.com/yourusername/drip-filter.git
+git clone https://github.com/duh-nicole/drip-filter.git
 cd drip-filter
 
 
