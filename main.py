@@ -75,36 +75,25 @@ def filter_by_range(users, attribute_key, prompt_display):
     Filters users by number in a given range
     """
     print(f"\n--- Filter by {prompt_display} ---")
-    min_val = get_integer_input(f"Please give min {prompt_display} for filtering: ", min_val=0)
-    while True:
-        max_val = get_integer_input(f"Please give max {prompt_display} for filtering: ")
-        if max_val < min_val:
-            print("Max cannot be less than min!")
-        else:
-            break
-    print(
-        f"\n✨ Ta da! Here is the filtered data based on {prompt_display} between {min_val} and {max_val} inclusively.")
-    filtered_users = [user for user in users if min_val <= getattr(user, attribute_key) <= max_val]
+    min_val = get_integer_input(f"Min {prompt_display}: ", min_val=0)
+    max_val = get_integer_input(f"Max {prompt_display}: ")
+    
+    ## The user object decides if it stays in the list
+    filtered_users = [u for u in users if u.matches_range(attribute_key, min_val, max_val)]
+    
+    print(f"\n✨ Filtered by {prompt_display} ({min_val}-{max_val})")
     return filtered_users
 
 def filter_by_string_attribute(users, prompt_text, attribute_key, partial_match=False):
-    """
-    Filters users by a string attribute. 
-    Can do exact match or partial match (like area codes).
-    """
     print(f"\n--- Filter by {prompt_text} ---")
-    search_term = input(f"Please enter {prompt_text.lower()} for filtering: ").strip().lower()
+    search_term = input(f"Search term: ").strip()
     
-    if not search_term:
+    if not search_term: 
         print(f"No {prompt_text.lower()} entered. No filtering applied.")
         return []
-    
-    if partial_match:
-        # This allows searching for "123" inside "123-456-7890"
-        filtered_users = [user for user in users if search_term in getattr(user, attribute_key).lower()]
-    else:
-        # This stays as an exact match for things like City names
-        filtered_users = [user for user in users if getattr(user, attribute_key).lower() == search_term]
+
+    # The user object handles the heavy lifting
+    filtered_users = [u for u in users if u.matches_string(attribute_key, search_term, partial_match)]
     
     if filtered_users:
         print(f"\n🎉 Ta da! Found {len(filtered_users)} results for: '{search_term}'.")
@@ -153,31 +142,37 @@ def main():
             print("Zoinks! You didn't pick anything! Try again. 👻")
             continue
         filtered_data = []
-
-        if choice == '1':
-            filtered_data = filter_by_range(all_users, "age", "age")
-        elif choice == '2':
-            filtered_data = filter_by_string_attribute(all_users, "City", "city")
-        elif choice == '3':
-            filtered_data = filter_by_string_attribute(all_users, "Last Name", "last_name")
-        elif choice == '4':
-            filtered_data = filter_by_string_attribute(all_users, "First Name", "first_name")
-        elif choice == '5':
-            filtered_data = filter_by_range(all_users, "id", "id")
-        elif choice == '6':
-            filtered_data = filter_by_string_attribute(all_users, "Phone Number", "phone_number", partial_match=True)
-        elif choice == 'q':
-            print("Peacing out. Adios! 👋")
-            break
-        else:
-            print("Oh no! 😔 Invalid option. Please choose from 1-5 or Q.")
+    
+        try:
+            if choice == '1':
+                filtered_data = filter_by_range(all_users, "age", "age")
+            elif choice == '2':
+                filtered_data = filter_by_string_attribute(all_users, "City", "city")
+            elif choice == '3':
+                filtered_data = filter_by_string_attribute(all_users, "Last Name", "last_name")
+            elif choice == '4':
+                filtered_data = filter_by_string_attribute(all_users, "First Name", "first_name")
+            elif choice == '5':
+                filtered_data = filter_by_range(all_users, "id", "id")
+            elif choice == '6':
+                filtered_data = filter_by_string_attribute(all_users, "Phone Number", "phone_number", partial_match=True)
+            elif choice == 'q':
+                print("Peacing out. Adios! 👋")
+                break
+            else:
+                print("Oh no! 😔 Invalid option. Please choose from 1-6 or Q.")
+                continue
+        except Exception as e:
+            print(f"Zoinks! An unexpected ghost in the machine: {e}")
             continue
-        display_users(filtered_data)
         if filtered_data:
+            display_users(filtered_data)
             save_choice = input("\nSave Your Filtered Data? Y/N ✨ \n").strip().lower()
             if save_choice == 'y':
                 new_file_name = input("File Name?  ✍️ \n").strip()
                 save_users_to_json(filtered_data, new_file_name)
+        else:
+            print("\nNo beans in the pot! 🫗 No data matched that filter, so there's nothing to save.")
         while True:
             back_to_menu_choice = input("Return to main menu? Y/N 💖 \n").strip().lower()
             if back_to_menu_choice == 'y':
