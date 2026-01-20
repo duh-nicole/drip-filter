@@ -1,58 +1,48 @@
-drip-filter
+drip-filter ☕
 Filters through data like a slow drip coffee machine — thoughtful, clean, and efficient.
 
-
 📝 Overview
-
-
-Drip-Filter is a lightweight app that helps you sort and filter through datasets with intention. Think of it like a pour-over for your info — slow, steady, and beautifully focused.
-
+Drip-Filter is a lightweight, accessible tool designed to help you sort through datasets with intention. Think of it like a pour-over for your info — removing the noise so you're left with a steady, beautifully focused stream of data.
 
 ⚙️ Features
+Intentional Filtering: Sort through pre-loaded JSON datasets using custom criteria.
 
-    Import or load a dataset (manually or coded-in for now)
+Clean Data Tables: View your results in a tidy, high-contrast table designed for scannability.
 
-    Filter results by criteria
+Accessibility First: Fully keyboard-navigable with focus-visible states and ARIA-compliant table structures.
 
-    View results in a tidy table
-
-    Great for practicing data handling logic
-
+The CodeLatte Aesthetic: A dark-roast UI that is easy on the eyes during late-night data sessions.
 
 🧰 Tech Stack
+JSON: For structured, lightweight data storage.
 
-    JSON
+Tailwind CSS: For the espresso-inspired dark mode and responsive layouts.
 
-    Python
-    
+JavaScript: Powering the logic that "filters the brew" without refreshing the page.
+
+Python (Optional): Used for backend data processing or local hosting.
 
 ♿ Accessibility Notes
+Screen Reader Friendly: Tables are structured with proper header scopes.
 
-    Designed to be keyboard navigable
+Keyboard Navigation: Use Tab to move through filter inputs and buttons naturally.
 
-    Focus-visible states for interactive elements
-
-    Tables structured for screen readers
-
+High Contrast: Vanilla text on a deep mocha background ensures WCAG compliance for readability.
 
 🚀 Getting Started
+Download or clone the project.
 
-    Open index.html
+Open index.html in your favorite browser.
 
-    Input your dataset (can be edited in the JS file)
-
-    Use the filter form to sort what you need
-
+Type your criteria into the filter bar and watch the "sediment" disappear from your data table.
 
 📸 Screenshots
-
-(Consider adding before/after filter example screenshots)
-
+The "Full Pot" (Unfiltered View)
+The "Pure Pour" (Filtered Results)
 
 ✨ Future Plans
+CSV Upload Support: Drag and drop your own beans (data) into the filter.
 
-    CSV upload support
+Export Filtered Results: Download your cleaned data as a CSV or PDF.
 
-    More advanced filters (e.g. ranges, multi-select)
-
-    Export filtered results
+Multi-Select Filters: Filter by multiple categories at once for a more refined brew.
