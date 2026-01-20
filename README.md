@@ -1,48 +1,58 @@
-drip-filter ☕
+drip-filter (Python Edition) ☕
 Filters through data like a slow drip coffee machine — thoughtful, clean, and efficient.
 
+
 📝 Overview
-Drip-Filter is a lightweight, accessible tool designed to help you sort through datasets with intention. Think of it like a pour-over for your info — removing the noise so you're left with a steady, beautifully focused stream of data.
+Drip-Filter (by SoftStack Studios) is a robust terminal-based tool for sorting and filtering user datasets. Using a "slow-pour" philosophy, it allows you to sift through large JSON files to find exactly who you are looking for, with a UI that is as friendly as your favorite barista.
+
 
 ⚙️ Features
-Intentional Filtering: Sort through pre-loaded JSON datasets using custom criteria.
+Multi-Criteria Filtering: Sift through data by Age, City, Name, or ID.
 
-Clean Data Tables: View your results in a tidy, high-contrast table designed for scannability.
+Range Logic: Built-in "min/max" filtering for numerical data (Age and ID).
 
-Accessibility First: Fully keyboard-navigable with focus-visible states and ARIA-compliant table structures.
+Object-Oriented Design: Data is converted from raw JSON into a managed User class for better attribute handling.
 
-The CodeLatte Aesthetic: A dark-roast UI that is easy on the eyes during late-night data sessions.
+Friendly UI: Custom error handling with fun, "Scooby-Doo" inspired prompts (Zoinks! Jinkies!).
+
+Data Persistence: Save your filtered "brew" into a new JSON file to keep your results for later.
+
 
 🧰 Tech Stack
-JSON: For structured, lightweight data storage.
+Python 3: The core engine of the filtering logic.
 
-Tailwind CSS: For the espresso-inspired dark mode and responsive layouts.
+JSON: Used for both input data and filtered output.
 
-JavaScript: Powering the logic that "filters the brew" without refreshing the page.
+OS Module: For smart file path checking and system management.
 
-Python (Optional): Used for backend data processing or local hosting.
-
-♿ Accessibility Notes
-Screen Reader Friendly: Tables are structured with proper header scopes.
-
-Keyboard Navigation: Use Tab to move through filter inputs and buttons naturally.
-
-High Contrast: Vanilla text on a deep mocha background ensures WCAG compliance for readability.
 
 🚀 Getting Started
-Download or clone the project.
+Ensure your main.py, user.py, and your JSON data file are in the same folder.
 
-Open index.html in your favorite browser.
+Run the program:
 
-Type your criteria into the filter bar and watch the "sediment" disappear from your data table.
+Bash
+
+python main.py
+Enter your filename (e.g., data.json) when prompted.
+
+Follow the Filter Fun Menu to refine your data!
+
+
+♿ Accessibility Notes
+Terminal Friendly: Designed to work perfectly with screen readers in a CLI environment.
+
+Input Validation: Robust error checking ensures the program doesn't crash on typos or invalid numbers.
+
+Clear Hierarchy: Uses ASCII formatting (=======) to create a visual structure for keyboard users.
+
 
 📸 Screenshots
-The "Full Pot" (Unfiltered View)
-The "Pure Pour" (Filtered Results)
+The Welcome Menu
+The Filtered Result
+
 
 ✨ Future Plans
-CSV Upload Support: Drag and drop your own beans (data) into the filter.
+Dynamic Attribute Filtering: Allow users to filter by any key found in the JSON file automatically.
 
-Export Filtered Results: Download your cleaned data as a CSV or PDF.
-
-Multi-Select Filters: Filter by multiple categories at once for a more refined brew.
+Visual Reports: Export the results into the "CodeLatte" web dashboard.
