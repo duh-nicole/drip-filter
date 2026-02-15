@@ -38,34 +38,32 @@ The use of matches_string and matches_range methods means new user attributes ca
 
 
 
-🚀 Getting Started
+---
 
-1. Prerequisites
+## 🚀 How to Run (DIY)
 
-Python 3.x
+Want to see how I handle the ghosts in the machine? Follow these steps on your own terminal:
 
+1. **Clone the repo:**
+   
+```bash
 
-2. Installation
-
-Clone the repository to your local machine:
-
-Bash
-git clone https://github.com/duh-nicole/drip-filter.git
+git clone [https://github.com/duh-nicole/drip-filter.git](https://github.com/duh-nicole/drip-filter.git)
+   
 cd drip-filter
 
+```
 
-3. Usage
-   
-Run the main application:
+2. Run the application
 
-Bash
+```bash
 
-python main.py
+python3 main.py
 
+```
 
-When prompted for a file, you can use the included data.json.
-
-
+3. Play around
+When prompted, enter data.JSON as your source file and start sifting through the data!
 
 
 
