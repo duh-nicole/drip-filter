@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nicole Christianna | Dev & DBA</title>
+    <style>
+        /* Color Palette */
+        :root {
+            --cream: #F5F2ED;
+            --espresso: #4A3F35;
+            --dusty-pink: #D4A5A5;
+            --white: #FFFFFF;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            background-color: var(--cream);
+            color: var(--espresso);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 2px solid var(--dusty-pink);
+            margin-bottom: 40px;
+        }
+
+        h1 { margin: 0; font-size: 2.5rem; }
+        .subtitle { color: var(--dusty-pink); font-weight: bold; font-size: 1.2rem; }
+
+        /* Container for cards */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Responsive Project Card */
+        .project-card {
+            background: var(--white);
+            border-radius: 15px;
+            margin-bottom: 30px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column; /* Stacks on mobile by default */
+            box-shadow: 0 4px 20px rgba(74, 63, 53, 0.08);
+        }
+
+        .project-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-bottom: 4px solid var(--dusty-pink);
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .tag {
+            background: var(--dusty-pink);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h2 { margin: 15px 0 10px 0; }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: var(--espresso);
+            color: var(--cream);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .btn:hover {
+            background: var(--dusty-pink);
+            transform: translateY(-2px);
+        }
+
+        /* Desktop Layout (Screens wider than 768px) */
+        @media (min-width: 768px) {
+            body { padding: 40px; }
+            .project-card { flex-direction: row; align-items: center; }
+            .project-image { width: 45%; border-bottom: none; border-right: 4px solid var(--dusty-pink); }
+            .project-content { width: 55%; padding: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Nicole Christianna</h1>
+        <div class="subtitle">Database Administrator & Programmer | May 2026</div>
+    </header>
+
+    <main>
+        <article class="project-card">
+            <img src="dripfilterDEMO.png" 
+                 alt="Screenshot of the Drip-Filter Python terminal interface showing a 'Filter Fun Menu' with coffee emojis and a list of filtered user data results." 
+                 class="project-image">
+            
+            <div class="project-content">
+                <span class="tag">Python & OOP</span>
+                <h2>drip-filter</h2>
+                <p>A data filtering engine that sifts through JSON records with the precision of a slow-drip brew. Features include robust input validation to handle ghosts in the machine and scalable object-oriented logic.</p>
+                <a href="https://github.com/duh-nicole/drip-filter" class="btn">View Project</a>
+            </div>
+        </article>
+
+        </main>
+</div>
+
+</body>
+</html>
